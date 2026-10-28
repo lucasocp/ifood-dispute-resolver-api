@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  dispute-resolver-api:
+    build: .
+    container_name: ifood_dispute_resolver_api
+    ports:
+      - "8002:8000"
+    environment:
+      ENVIRONMENT: production
+      DISPUTE_API_KEY: ${DISPUTE_API_KEY:?Set DISPUTE_API_KEY to a random key of at least 32 characters}
+    restart: unless-stopped
